@@ -1,0 +1,13 @@
+﻿@*@using Kayla_Blog.Models
+@model BlogPost*@
+
+@{
+	ViewBag.Title = "Thin Air";
+}
+
+@using (Html.BeginForm())
+{
+	@Html.AntiForgeryToken()
+
+	<button type="submit" class="btn btn-primary">Submit Me</button>
+}

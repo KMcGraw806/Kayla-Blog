@@ -1,0 +1,18 @@
+﻿body {
+}
+.blogPicture {
+	height: 400px;
+}
+.leaveAComment {
+	margin-bottom: 30px;
+	margin-top: 20px;
+}
+.btnComment {
+	margin-top: 20px;
+}
+.register {
+	margin-right: 20px;
+}
+.account {
+	color: black;
+}
