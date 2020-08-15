@@ -2,74 +2,27 @@
 @{
 	ViewBag.Title = "Contact";
 }
-	<h2>@ViewBag.Title</h2>
-	<h3>@ViewBag.Message</h3>
-
-@using (Html.BeginForm())
-{ 
-	@Html.AntiForgeryToken()
-	<h4>Send me a message</h4>
-	<hr />
-	@Html.ValidationSummary("", new { @class = "text-danger" })
-	<div class="form-group">
-		@Html.LabelFor(m => m.FromName, new { @class = "col-md-2 control-label" })
-		<div class="col-md-10">
-			@Html.TextBoxFor(m => m.FromName, new { @class = "from-control" })
-			@Html.ValidationMessageFor(m => m.FromName)
-		</div>
-	</div>
-	<div class="form-group">
-		@Html.LabelFor(m => m.FromEmail, new { @class = "col-md-2 control-label"})
-		<div class="col-md-10">
-			@Html.TextBoxFor(m => m.FromEmail, new { @class = "form-control", placeholder = "example@email.com" })
-			@Html.ValidationMessageFor(m => m.FromEmail)
-		</div>
-	</div>	
-	<div class="form-group">
-		@Html.LabelFor(m => m.Subject, new { @class = "col-md-2 control-label"})
-		<div class="col-md-10">
-			@Html.TextBoxFor(m => m.Subject, new { @class = "form-control", placeholder = "example@email.com" })
-			@Html.ValidationMessageFor(m => m.Subject)
-		</div>
-	</div>	
-	<div class="form-group">
-		@Html.LabelFor(m => m.Body, new { @class = "col-md-2 control-label"})
-		<div class="col-md-10">
-			@Html.TextBoxFor(m => m.Body, new { @class = "form-control", placeholder = "example@email.com" })
-			@Html.ValidationMessageFor(m => m.Body)
-		</div>
-	</div>
-	<div class="form-group">
-		<div class="col-md-offset-2 col-md-10">
-			<input type="submit" class="btn btn-primary" value="Send" />
-		</div>
-	</div>
-}
+@*<h2 class="contactTitle">@ViewBag.Title</h2>
+<h3 class="contactMessage">@ViewBag.Message</h3>*@
 
 <!--================ Start banner Area =================-->
-@*<section class="banner-area relative">
-	<div class="overlay overlay-bg"></div>
-	<div class="banner-content text-center">
-		<h1>Contact Us</h1>
-		<p>
-			Elementum libero hac leo integer. Risus hac parturient feugiat litora
-			<br />
-			cursus hendrerit bibendum per
-		</p>
-	</div>
-</section>*@
+<section role="banner" class="bannerMargin">
+	<a href="/">
+		<img class="responsive" src="~/Images/contactInfo.png" />
+	</a>
+</section>
 <!--================ End banner Area =================-->
-<!-- Start contact-page Area -->
-@*<section class="contact-page-area section-gap">
+@*Start contact-page Area*@
+<section class="contact-page-area">
 	<div class="container">
-		<div class="row">
-			<div class="map-wrap" id="contactMap"></div>
-			<div class="col-lg-4 d-flex flex-column address-wrap">
+		<div class="row contactPage">
+			@*<div class="col-lg-4 d-flex flex-column address-wrap contactMe">
+				<h4 class="text-center">Contact Me!</h4>
+				<hr />
 				<div class="single-contact-address d-flex flex-row">
 					<div class="icon"><span class="lnr lnr-home"></span></div>
 					<div class="contact-details">
-						<h5>Greensboro, North Carolina</h5>
-						<p>4343 Hinkle Deegan Lake Road</p>
+						<h5 class="contactInfo">Greensboro, North Carolina</h5>
 					</div>
 				</div>
 				<div class="single-contact-address d-flex flex-row">
@@ -77,69 +30,65 @@
 						<span class="lnr lnr-phone-handset"></span>
 					</div>
 					<div class="contact-details">
-						<h5>(276) 336 1968</h5>
-						<p>Mon to Fri 9am to 6 pm</p>
+						<h5 class="contactInfo">(276) 336 1968</h5>
 					</div>
 				</div>
 				<div class="single-contact-address d-flex flex-row">
 					<div class="icon"><span class="lnr lnr-envelope"></span></div>
 					<div class="contact-details">
-						<h5>kayla_mcgraw@hotmail.com</h5>
-						<p>Send us your query anytime!</p>
+						<h5 class="contactInfo">kayla_mcgraw@hotmail.com</h5>
 					</div>
 				</div>
 			</div>*@
-			@*<div class="col-lg-8">
-				<form class="form-area contact-form text-right"
-					  id="myForm"
-					  action="mail.php"
-					  method="post">
+			<div class="col-8 blogIndex justify-content-center">
+				@using (Html.BeginForm())
+				{
+					@Html.AntiForgeryToken()
+					<h4 class="text-center">Send me a message</h4>
+					<hr />
+					@Html.ValidationSummary("", new { @class = "text-danger" })
 					<div class="row">
-						<div class="col-lg-6 form-group">
-							<input name="name"
-								   placeholder="Enter your name"
-								   onfocus="this.placeholder = ''"
-								   onblur="this.placeholder = 'Enter your name'"
-								   class="common-input mb-20 form-control"
-								   required=""
-								   type="text" />
-
-							<input name="email"
-								   placeholder="Enter email address"
-								   pattern="[A-Za-z0-9._%+-]+[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
-								   onfocus="this.placeholder = ''"
-								   onblur="this.placeholder = 'Enter email address'"
-								   class="common-input mb-20 form-control"
-								   required=""
-								   type="email" />
-
-							<input name="subject"
-								   placeholder="Enter subject"
-								   onfocus="this.placeholder = ''"
-								   onblur="this.placeholder = 'Enter subject'"
-								   class="common-input mb-20 form-control"
-								   required=""
-								   type="text" />
+						<div class="form-group">
+							@Html.LabelFor(m => m.FromName, new { @class = "col-md-2 control-label" })
+							<div class="col-md-5">
+								@Html.TextBoxFor(m => m.FromName, new { @class = "form-control contactName", placeholder = "Name" })
+								@Html.ValidationMessageFor(m => m.FromName)
+							</div>
 						</div>
-						<div class="col-lg-6 form-group">
-							<textarea class="common-textarea form-control"
-									  name="message"
-									  placeholder="Enter Messege"
-									  onfocus="this.placeholder = ''"
-									  onblur="this.placeholder = 'Enter Messege'"
-									  required=""></textarea>
-						</div>
-						<div class="col-lg-12">
-							<div class="alert-msg" style="text-align: left;"></div>
-							<button class="primary-btn text-uppercase"
-									style="float: right;">
-								Send Message
-							</button>
+						<div class="form-group">
+							@Html.LabelFor(m => m.FromEmail, new { @class = "col-md-2 control-label" })
+							<div class="col-md-5">
+								@Html.TextBoxFor(m => m.FromEmail, new { @class = "form-control contactEmail", placeholder = "example@email.com" })
+								@Html.ValidationMessageFor(m => m.FromEmail)
+							</div>
 						</div>
 					</div>
-				</form>
-			</div>*@
-		@*</div>
+					<div class="row">
+						<div class="form-group">
+							@Html.LabelFor(m => m.Subject, new { @class = "col-md-2 control-label" })
+							<div class="col-md-12">
+								@Html.TextBoxFor(m => m.Subject, new { @class = "form-control contactSubject", placeholder = "Subject" })
+								@Html.ValidationMessageFor(m => m.Subject)
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group">
+							@Html.LabelFor(m => m.Body, new { @class = "col-md-2 control-label" })
+							<div class="col-md-12">
+								@Html.TextBoxFor(m => m.Body, new { @class = "form-control contactBody", placeholder = "Message" })
+								@Html.ValidationMessageFor(m => m.Body)
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-offset-2 col-md-10">
+							<input type="submit" class="btn btn-primary btnSend" value="Send" />
+						</div>
+					</div>
+				}
+			</div>
+		</div>
 	</div>
-</section>*@
-<!-- End contact-page Area -->
+</section>
+@*End contact-page Area*@ 

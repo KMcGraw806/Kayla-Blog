@@ -27,7 +27,7 @@ namespace Kayla_Blog.Controllers
             ViewBag.Search = searchStr;
             var blogList = IndexSearch(searchStr);
 
-            int pageSize = 3;
+            int pageSize = 5;
             int pageNumber = (page ?? 1);
 
             return View(blogList.ToPagedList(pageNumber, pageSize));
@@ -118,9 +118,6 @@ namespace Kayla_Blog.Controllers
                 if (ImageUploadValidator.IsWebFriendlyImage(image))
                 {
                     var fileName = Path.GetFileName(image.FileName);
-                    var justFileName = Path.GetFileNameWithoutExtension(fileName);
-                    justFileName = StringUtilities.URLFriendly(justFileName);
-                    fileName = $"{justFileName}_{DateTime.Now.Ticks}{Path.GetExtension(fileName)}";
                     image.SaveAs(Path.Combine(Server.MapPath("~/Uploads/"), fileName));
                     blogPost.MediaPath = "/Uploads/" + fileName;
                 }

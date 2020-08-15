@@ -4,84 +4,113 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>BlogPost</h4>
+<h3 class="text-center youSure">Are you sure you want to delete this?</h3>
+<div class="container-fluid">
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Created)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Created)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Updated)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Updated)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Slug)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Slug)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Body)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Body)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Abstract)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Abstract)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MediaPath)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MediaPath)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Published)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Published)
-        </dd>
-
+		<div class="row firstOne">
+            <div class="col-6 text-right">
+				<dt>
+					@Html.DisplayNameFor(model => model.Created)
+				</dt>
+            </div>
+            <div class="col-6">
+				<dd>
+					@Html.DisplayFor(model => model.Created)
+				</dd>
+            </div>
+		</div>
+        <div class="row">
+            <div class="col-6 text-right">
+				<dt>
+					@Html.DisplayNameFor(model => model.Updated)
+				</dt>
+            </div>
+            <div class="col-6">
+				<dd>
+					@Html.DisplayFor(model => model.Updated)
+				</dd>
+            </div>
+		</div>
+        <div class="row">
+            <div class="col-6 text-right">
+				<dt>
+					@Html.DisplayNameFor(model => model.Title)
+				</dt>
+            </div>
+            <div class="col-6">
+				<dd>
+					@Html.DisplayFor(model => model.Title)
+				</dd>
+            </div>
+		</div>
+        <div class="row">
+            <div class="col-6 text-right">
+				<dt>
+					@Html.DisplayNameFor(model => model.Slug)
+				</dt>
+            </div>
+            <div class="col-6">
+				<dd>
+					@Html.DisplayFor(model => model.Slug)
+				</dd>
+            </div>
+		</div>
+        <div class="row">
+            <div class="col-6 text-right">
+				<dt>
+					@Html.DisplayNameFor(model => model.Body)
+				</dt>
+            </div>
+            <div class="col-6">
+				<dd>
+					@Html.DisplayFor(model => model.Body)
+				</dd>
+            </div>
+		</div>
+        <div class="row">
+            <div class="col-6 text-right">
+				<dt>
+					@Html.DisplayNameFor(model => model.Abstract)
+				</dt>
+            </div>
+            <div class="col-6">
+				<dd>
+					@Html.DisplayFor(model => model.Abstract)
+				</dd>
+            </div>
+		</div>
+        <div class="row">
+            <div class="col-6 text-right">
+				<dt>
+					@Html.DisplayNameFor(model => model.MediaPath)
+				</dt>
+            </div>
+            <div class="col-6">
+				<dd>
+					@Html.DisplayFor(model => model.MediaPath)
+				</dd>
+            </div>
+		</div>
+        <div class="row">
+            <div class="col-6 text-right">
+				<dt>
+					@Html.DisplayNameFor(model => model.Published)
+				</dt>
+            </div>
+            <div class="col-6">
+				<dd>
+					@Html.DisplayFor(model => model.Published)
+				</dd>
+            </div>
+		</div>
     </dl>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
+        <div class="form-row justify-content-center">
+            <input type="submit" value="Delete" class="btn btn-primary deletePost" /> |
             @Html.ActionLink("Back to List", "Index")
         </div>
     }

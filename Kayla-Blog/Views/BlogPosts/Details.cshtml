@@ -3,13 +3,9 @@
 @model BlogPost
 
 <!--================ Start banner Area =================-->
-<section class="banner-area relative">
-	<div class="overlay overlay-bg"><img src="~/Images/banner-bg.jpg" /></div>
-	<div class="banner-content text-center">
-		<h1>Blog Details</h1>
-		<p>Elementum libero hac leo integer. Risus hac parturient feugiat litora <br /> cursus hendrerit bibendum per </p>
+	<div role="banner" class="bannerMargin">
+		<img src="~/Images/blogbanner.png" alt="Alternate Text" />
 	</div>
-</section>
 <!--================ End banner Area =================-->
 <!--================Blog Area =================-->
 <section class="blog_area section-gap single-post-area">
@@ -20,10 +16,6 @@
 					<img class="img-fluid" src="@Model.MediaPath" alt="">
 					<a href="#"><h4>@Model.Title</h4></a>
 					<div class="user_details">
-						<div class="float-left">
-							<a href="#">Lifestyle</a>
-							<a href="#">Gadget</a>
-						</div>
 						<div class="float-right mt-sm-0 mt-3">
 							<div class="media">
 								<div class="media-body">
@@ -40,18 +32,17 @@
 						@Html.Raw(Model.Body)
 					</p>
 					<div class="news_d_footer flex-column flex-sm-row">
-						<a href="#"><i class="lnr lnr lnr-heart"></i>Lily and 4 people like this</a>
-						<a class="justify-content-sm-center ml-sm-auto mt-sm-0 mt-2" href="#"><i class="lnr lnr lnr-bubble"></i>06 Comments</a>
-						<div class="news_socail ml-sm-auto mt-sm-0 mt-2">
+						<a class="justify-content-sm-center ml-sm-auto mt-sm-0 mt-2" href="#"><i class="lnr lnr lnr-bubble"></i>@Model.Comments.Count()</a>
+						@*<div class="news_socail ml-sm-auto mt-sm-0 mt-2">
 							<a href="#"><i class="fa fa-facebook"></i></a>
 							<a href="#"><i class="fa fa-twitter"></i></a>
 							<a href="#"><i class="fa fa-youtube-play"></i></a>
 							<a href="#"><i class="fa fa-pinterest"></i></a>
 							<a href="#"><i class="fa fa-rss"></i></a>
-						</div>
+						</div>*@
 					</div>
 				</div>
-				<div class="navigation-area">
+				@*<div class="navigation-area">
 					<div class="row">
 						<div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
 							<div class="thumb">
@@ -78,7 +69,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div>*@
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-md-10 col-md-offset-1">
@@ -87,7 +78,7 @@
 								<p id="`comment-${comment.Id}`">@Html.Raw(comment.CommentBody)</p>
 								if (comment.AuthorId != null)
 								{
-									<p>By: @comment.Author.DisplayName on @comment.Created</p>
+									<p>By: @comment.Author. on @comment.Created</p>
 								}
 								if (User.IsInRole("Admin") || User.IsInRole("Moderator") || User.Identity.GetUserId() == comment.AuthorId)
 								{
@@ -139,13 +130,16 @@
 			<div class="col-lg-4 sidebar-widgets">
 				<div class="widget-wrap">
 					<div class="single-sidebar-widget search-widget">
-						<form class="search-form" action="#">
-							<input placeholder="Search Posts" name="search" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Posts'">
-							<button type="submit"><i class="fa fa-search"></i></button>
-						</form>
+						@using (Html.BeginForm("Index", "BlogPosts", FormMethod.Get, htmlAttributes: new { @class = "form" }))
+						{
+							<div class="controls controls-row search-row">
+								<input id="searchStr" placeholder="Search Posts" class="input-block-level textSearch" name="searchStr" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Posts'">
+								<button class="btn btn-primary btnSearch" id="searchStr" name="searchStr" type="submit"><i class="fa fa-search"></i></button>
+							</div>
+						}
 					</div>
 
-					<div class="single-sidebar-widget instafeed-widget">
+					@*<div class="single-sidebar-widget instafeed-widget">
 						<h4 class="instafeed-title">Instagram</h4>
 						<ul class="instafeed d-flex flex-wrap">
 							<li><img src="img/blog/instagram/i1.jpg" alt=""></li>
@@ -282,7 +276,7 @@
 								<span class="ti-instagram"></span>
 							</a>
 						</div>
-					</div>
+					</div>*@
 				</div>
 			</div>
 		</div>

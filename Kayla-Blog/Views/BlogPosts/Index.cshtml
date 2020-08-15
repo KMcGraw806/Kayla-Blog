@@ -7,88 +7,94 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 class="text-center">Blog Posts</h2>
 @using (Html.BeginForm("Index", "BlogPosts", FormMethod.Get, htmlAttributes: new { @class = "form" }))
 { 
-    <div class="controls controls-row search-row">
-        <input id="searchStr" name="searchStr" class="input-block-level" type="text" placeholder="Search">
-        <button id="searchStr" name="searchStr" class="btn btn-primary" type="submit">
-            <i class="icon-search"></i>
-        </button>
+    <div class="controls controls-row search-row searchBar">
+        <input id="searchStr" name="searchStr" class="input-block-level textSearch" type="text" placeholder="Search">
+        <button id="searchStr" name="searchStr" class="btn btn-primary btnSearch" type="submit"><i class="fa fa-search"></i></button>
     </div>
 }
+
+<div class="container-fluid">
+    <div class="col-10 blogIndex">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayName("Created")
+                </th>
+                <th>
+                    @Html.DisplayName("Updated")
+                </th>
+                <th>
+                    @Html.DisplayName("Title")
+                </th>
+                <th>
+                    @Html.DisplayName("Slug")
+                </th>
+                <th>
+                    @Html.DisplayName("Body")
+                </th>
+                <th>
+                    @Html.DisplayName("Abstract")
+                </th>
+                <th>
+                    @Html.DisplayName("MediaPath")
+                </th>
+                <th>
+                    @Html.DisplayName("Published")
+                </th>
+                <th></th>
+            </tr>
+
+        @foreach (var blogPost in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => blogPost.Created)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => blogPost.Updated)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => blogPost.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => blogPost.Slug)
+                </td>
+                <td>
+                    @Html.Raw(blogPost.Body)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => blogPost.Abstract)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => blogPost.MediaPath)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => blogPost.Published)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=blogPost.Id }) |
+                    @Html.ActionLink("Details", "Details", new { slug=blogPost.Slug }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=blogPost.Id })
+                </td>
+            </tr>
+        }
+
+        </table>
+    </div>
+</div>
 
 <p>
 	@if (User.IsInRole("Admin"))
 	{
-		@Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
-		}
+        <div class="form-row justify-content-center">
+    		@Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary btnCreate" })
+        </div>
+	}
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayName("Created")
-        </th>
-        <th>
-            @Html.DisplayName("Updated")
-        </th>
-        <th>
-            @Html.DisplayName("Title")
-        </th>
-        <th>
-            @Html.DisplayName("Slug")
-        </th>
-        <th>
-            @Html.DisplayName("Body")
-        </th>
-        <th>
-            @Html.DisplayName("Abstract")
-        </th>
-        <th>
-            @Html.DisplayName("MediaPath")
-        </th>
-        <th>
-            @Html.DisplayName("Published")
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var blogPost in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => blogPost.Created)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => blogPost.Updated)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => blogPost.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => blogPost.Slug)
-        </td>
-        <td>
-            @Html.Raw(blogPost.Body)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => blogPost.Abstract)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => blogPost.MediaPath)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => blogPost.Published)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=blogPost.Id }) |
-            @Html.ActionLink("Details", "Details", new { slug=blogPost.Slug }) |
-            @Html.ActionLink("Delete", "Delete", new { id=blogPost.Id })
-        </td>
-    </tr>
-}
-
-</table>
-
-
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-@Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchStr = ViewBag.Search }));
+<div class="text-center">
+	Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+	@Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchStr = ViewBag.Search }))
+</div>

@@ -212,8 +212,12 @@
     <Content Include="fonts\Linearicons-Free.svg" />
     <Content Include="fonts\themify.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\android-chrome-192x192.png" />
+    <Content Include="Images\android-chrome-512x512.png" />
+    <Content Include="Images\apple-touch-icon.png" />
     <Content Include="Images\b1.jpg" />
     <Content Include="Images\b2.jpg" />
+    <Content Include="Images\background.jpg" />
     <Content Include="Images\banner-bg.jpg" />
     <Content Include="Images\blog-post1.jpg" />
     <Content Include="Images\blog-post2.jpg" />
@@ -223,6 +227,14 @@
     <Content Include="Images\blog-post6.jpg" />
     <Content Include="Images\blog-post7.jpg" />
     <Content Include="Images\blog-post8.jpg" />
+    <Content Include="Images\blogbanner.png" />
+    <Content Include="Images\BlogLogo.png" />
+    <Content Include="Images\contactInfo.png" />
+    <Content Include="Images\ContactPage.png" />
+    <Content Include="Images\EmailSent.png" />
+    <Content Include="Images\favicon-16x16.png" />
+    <Content Include="Images\favicon-32x32.png" />
+    <Content Include="Images\favicon.ico" />
     <Content Include="Images\i1.jpg" />
     <Content Include="Images\i2.jpg" />
     <Content Include="Images\i3.jpg" />
@@ -231,12 +243,14 @@
     <Content Include="Images\i6.jpg" />
     <Content Include="Images\i7.jpg" />
     <Content Include="Images\i8.jpg" />
+    <Content Include="Images\learning.jpg" />
     <Content Include="Images\next.png" />
     <Content Include="Images\pp1.jpg" />
     <Content Include="Images\pp2.jpg" />
     <Content Include="Images\pp3.jpg" />
     <Content Include="Images\pp4.jpg" />
     <Content Include="Images\prev.png" />
+    <Content Include="Images\workspace.jpg" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.2.4.min.js" />
@@ -444,6 +458,8 @@
     <Content Include="Scripts\tinymce\langs\readme.md" />
     <Content Include="Views\BlogPosts\ThinAir.cshtml" />
     <Content Include="private.config" />
+    <Content Include="Views\Home\EmailConfirm.cshtml" />
+    <None Include="Properties\PublishProfiles\Kayla-Blog - Web Deploy.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

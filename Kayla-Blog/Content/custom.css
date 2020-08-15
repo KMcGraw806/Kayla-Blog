@@ -1,7 +1,8 @@
 ﻿body {
 }
-.blogPicture {
-	height: 400px;
+.textSearch {
+	height: 39px;
+	width: 200px;
 }
 .leaveAComment {
 	margin-bottom: 30px;
@@ -12,7 +13,104 @@
 }
 .register {
 	margin-right: 20px;
+	margin-left: 15px;
 }
 .account {
 	color: black;
+}
+.blogIndex {
+	margin: 0px auto;
+	float:none;
+}
+.searchBar {
+	margin-left: 150px;
+	margin-bottom: 20px;
+}
+.btnCreate {
+	width: 200px;
+}
+.contactBody {
+	width: 309%;
+	height: 100px
+}
+.contactSubject {
+	width: 309%;
+}
+.contactEmail {
+	width: 350px;
+}
+.contactName {
+	width: 350px;
+}
+.deletePost {
+	margin-right: 10px;
+	margin-bottom: 20px;
+}
+.youSure {
+	margin-top: 50px;
+}
+.firstOne {
+	margin-top: 50px;
+}
+.footerBottom {
+	padding: 0px 0px !important;
+}
+.btnSearch {
+	vertical-align:bottom;
+}
+.abstract {
+	width:inherit;
+}
+.postTitle {
+	width: inherit;
+}
+.responsive {
+	width: 100%;
+	height: auto;
+}
+.contactTitle {
+	text-align: center;
+	margin-top: 40px;
+}
+.contactMessage {
+	text-align: center;
+}
+.contactMe {
+	align-self: center;
+}
+.contactPage {
+	margin-top: 50px;
+	margin-bottom: 250px;
+}
+.contactInfo {
+	margin-bottom: 25px !important;
+}
+.btnSend {
+	width: 700px;
+	margin-top: 20px;
+}
+.footerStay {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.headerStay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+#loginForm {
+	margin-top: 200px;
+	align-content: center;
+}
+#socialLoginForm {
+	margin-top: 200px;
+}
+.emailSent {
+	margin-top: 200px;
+}
+.bannerMargin {
+	padding-top: 100px;
 }

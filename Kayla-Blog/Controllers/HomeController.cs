@@ -32,8 +32,13 @@ namespace Kayla_Blog.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Contact Me!";
             EmailModel model = new EmailModel();
+            return View();
+        }
+
+        public ActionResult EmailConfirm()
+        {
             return View();
         }
 
@@ -46,8 +51,8 @@ namespace Kayla_Blog.Controllers
                 try
                 {
                     var body = "<p>Email From: <bold>{0}</bold>({1})</p><p>Message:</p><p>{2}</p>";
-                    var from = "MyPortfolio<example@email.com>";
-                    model.Body = "This is a message from your blog site. The name and the email of the contacting person is above.";
+                    var from = "MyBlog<example@email.com>";
+                    //model.Body = "This is a message from your blog site. The name and the email of the contacting person is above.";
 
                     var email = new MailMessage(from, ConfigurationManager.AppSettings["emailto"])
                     {
@@ -58,7 +63,7 @@ namespace Kayla_Blog.Controllers
                     var svc = new EmailService();
                     await svc.SendAsync(email);
 
-                    return View(new EmailModel());
+                    return View("EmailConfirm");
                 }
                 catch(Exception ex)
                 {
