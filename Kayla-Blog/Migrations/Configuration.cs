@@ -64,7 +64,6 @@ namespace Kayla_Blog.Migrations
 
             var modId = userManager.FindByEmail("chris.cwm.1022@gmail.com").Id;
             userManager.AddToRole(modId, "Moderator");
-
         }
     }
 }
