@@ -78,7 +78,7 @@
 								<p id="`comment-${comment.Id}`">@Html.Raw(comment.CommentBody)</p>
 								if (comment.AuthorId != null)
 								{
-									<p>By: @comment.Author. on @comment.Created</p>
+									<p>By: @comment.Author.DisplayName on @comment.Created</p>
 								}
 								if (User.IsInRole("Admin") || User.IsInRole("Moderator") || User.Identity.GetUserId() == comment.AuthorId)
 								{

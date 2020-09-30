@@ -27,7 +27,7 @@ namespace Kayla_Blog.Controllers
             ViewBag.Search = searchStr;
             var blogList = IndexSearch(searchStr);
 
-            int pageSize = 5;
+            int pageSize = 6;
             int pageNumber = (page ?? 1);
 
             return View(blogList.ToPagedList(pageNumber, pageSize));
@@ -60,27 +60,6 @@ namespace Kayla_Blog.Controllers
             return View();
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult ThinAir(BlogPost blogPost)
-        {
-            return RedirectToAction("Index");
-        }
-
-        // GET: BlogPosts/Details/5
-        //public ActionResult Details(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    BlogPost blogPost = db.BlogPosts.Find(id);
-        //    if (blogPost == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(blogPost);
-        //}
 
         public ActionResult Details(string slug)
         {

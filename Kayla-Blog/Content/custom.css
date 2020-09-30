@@ -90,7 +90,7 @@
 	margin-top: 20px;
 }
 .footerStay {
-	position: absolute;
+	position: inherit;
 	bottom: 0;
 	left: 0;
 	right: 0;
@@ -109,8 +109,34 @@
 	margin-top: 200px;
 }
 .emailSent {
-	margin-top: 200px;
+	margin-top: 161px;
 }
 .bannerMargin {
 	padding-top: 100px;
+}
+.emailConfirm {
+	margin-left: 0px !important;
+	margin-right: 0px !important;
+}
+.loginBox {
+	width: 450px;
+}
+.btnWide {
+	width: 100%;
+}
+.loginContainer {
+	height: 905px; 
+}
+.registerBox {
+	padding-left: 300px;
+	padding-right: 300px;
+}
+.registerButton {
+	padding-left: 360px;
+}
+.aboutMe {
+	font-weight:400;
+}
+.aboutMePicture {
+	border-radius:50%;
 }
