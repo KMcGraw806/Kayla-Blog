@@ -18,18 +18,23 @@
 								{
 									@Html.AntiForgeryToken()
 									@Html.ValidationSummary(true, "", new { @class = "text-danger" })
-									<div class="form-group text-center">
 
-										<div class="col-8 offset-3">
-											<input placeholder="Email" class="form-control loginBox" data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required." id="Email" name="Email" type="text" value="">
-											<span class="field-validation-valid text-danger" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+									<div class="row">
+										<div class="col-6">
+											<div class="form-group text-center">
+												<div class="col-12">
+													<input placeholder="Email" class="form-control loginBox" data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required." id="Email" name="Email" type="text" value="">
+													<span class="field-validation-valid text-danger" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+												</div>
+											</div>
 										</div>
-									</div>
-									<div class="form-group">
-										
-										<div class="col-8 offset-3">
-											<input class="form-control loginBox" placeholder="Password" data-val="true" data-val-required="The Password field is required." id="Password" name="Password" type="password">
-											<span class="field-validation-valid text-danger" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+										<div class="col-6">
+											<div class="form-group">
+												<div class="col-12">
+													<input class="form-control loginBox" placeholder="Password" data-val="true" data-val-required="The Password field is required." id="Password" name="Password" type="password">
+													<span class="field-validation-valid text-danger" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+												</div>
+											</div>
 										</div>
 									</div>
 									<div class="form-group">
@@ -42,7 +47,7 @@
 									</div>
 									<div class="form-group text-center">
 										<div class="col-md-4 offset-4">
-											<input type="submit" value="Log in" class="btn btn-default btnWide" />
+											<input type="submit" value="Log in" class="btn btn-primary btnWide" />
 										</div>
 									</div>
 									<div class="text-center">
